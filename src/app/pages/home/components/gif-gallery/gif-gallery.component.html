@@ -1,0 +1,24 @@
+<div class="w-100">
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    (scrolled)="updatePaginationParams()"
+    class="container scroll-container"
+  >
+    <ngx-masonry
+      class="gallery"
+      [options]="masonryOptions()"
+      [updateLayout]="updateMasonryLayout()"
+    >
+      @for (item of data(); track item.id) {
+        <app-gif ngxMasonryItem [data]="item" class="gallery__item"></app-gif>
+      } @empty {
+        @if (loadingStatus() === LOADING_STATUS.finished) {
+          <p class="gallery__no-result">
+            Unfortunately we weren't able to find any gifs matching your query...
+          </p>
+        }
+      }
+    </ngx-masonry>
+  </div>
+</div>

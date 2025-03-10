@@ -1,0 +1,31 @@
+:host {
+  .header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-block: 48px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    h1 {
+      text-align: center;
+      font-size: 60px;
+    }
+
+    .search {
+      display: flex;
+      gap: 24px;
+    }
+  }
+
+  .gallery {
+    display: block;
+    margin-top: 260px;
+  }
+}

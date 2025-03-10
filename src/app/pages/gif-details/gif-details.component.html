@@ -1,0 +1,30 @@
+@if (data()) {
+  <div class="w-100">
+    <div class="container">
+      <h2>{{ data()?.title }}</h2>
+      <div class="gif">
+        <img [src]="data()?.webp" [alt]="data()?.alt_text" class="gif__img" />
+        <div class="gif__details">
+          <div class="gif__info">
+            <p><b>Title: </b>{{ data()?.title }}</p>
+            <p><b>Author: </b>{{ data()?.username }}</p>
+            <p><b>Created: </b>{{ data()?.create_datetime }}</p>
+          </div>
+          <div class="gif__actions">
+            <app-button [routerLink]="['/']">Continue browsing</app-button>
+            <app-button
+              ngxClipboard
+              [cbContent]="data()?.url"
+              (cbOnSuccess)="updateCopiedStatus(COPIED_STATUS.success)"
+              (cbOnError)="updateCopiedStatus(COPIED_STATUS.error)"
+              >Copy Url</app-button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else if (!data() && loadingStatus() === LOADING_STATUS.finished) {
+  <p>We weren't able to retrieve the gif</p>
+}
+<p-toast />

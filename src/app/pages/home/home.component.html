@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="header">
+  <div class="container">
+    <h1>Search gifs</h1>
+    <div class="search">
+      <app-search-bar
+        [formControl]="searchCtrl"
+        [suggestions]="(autocompleteSuggestions | async) ?? []"
+        class="search-input"
+      ></app-search-bar>
+      <app-button (click)="searchGifs()" class="search-button" [disabled]="form.invalid"
+        >Search</app-button
+      >
+    </div>
+  </div>
+</form>
+
+<app-gif-gallery
+  class="gallery"
+  [data]="gifs()"
+  [loadingStatus]="loadingStatus()"
+  [updateMasonryLayout]="updateMasonryLayout()"
+  (changePaginationParams)="updatePaginationParams()"
+></app-gif-gallery>
