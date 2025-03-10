@@ -1,5 +1,12 @@
 # GifFinder
 
+✨ Features
+- 🏠 Home Page – Displays a limited set of trending GIFs.
+- 🔍 Search with Prompts – Users can search for GIFs dynamically.
+- 📄 Paginated Search Results – Search results support pagination for seamless browsing.
+- 🖼️ GIF Details Page – Clicking on a GIF navigates to a dedicated page with more details.
+- 📋 Copy to Clipboard – Easily copy the GIF URL from the details page.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server
